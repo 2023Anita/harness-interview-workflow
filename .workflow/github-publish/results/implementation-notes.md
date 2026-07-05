@@ -32,4 +32,6 @@ Build a high-quality public GitHub package for the Harness Interview Workflow wi
 
 ## Follow-up
 
-- Add repository URL and Pages URL after publish.
+- Repository published: `https://github.com/2023Anita/harness-interview-workflow`.
+- Pages published: `https://2023anita.github.io/harness-interview-workflow/`.
+- Pages status: `built`.

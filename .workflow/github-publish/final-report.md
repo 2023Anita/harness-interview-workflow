@@ -24,7 +24,14 @@
 
 ## Pending
 
-- Git commit.
-- GitHub public repository creation.
-- Push to `2023Anita/harness-interview-workflow`.
-- Enable GitHub Pages from `main` branch `/docs`.
+- None.
+
+## Published
+
+- Repository: `https://github.com/2023Anita/harness-interview-workflow`
+- GitHub Pages: `https://2023anita.github.io/harness-interview-workflow/`
+- Visibility: public
+- Default branch: `main`
+- Pages source: `main` branch `/docs`
+- Pages status: `built`
+- Topics: `ai-agents`, `approval-gates`, `codex-skill`, `prompt-engineering`, `workflow`, `blindspot-scan`, `japanese-illustration`
