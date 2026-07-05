@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Harness Interview Workflow</title>
+  <meta name="description" content="A Codex skill that turns vague intent into blindspot scanning, interview questions, route options, and approval-gated execution.">
+  <style>
+    :root {
+      --ink: #17211c;
+      --muted: #5f6f68;
+      --paper: #fbf7ee;
+      --line: #d9d0c2;
+      --green: #6f8c72;
+      --blue: #7f9ab3;
+      --rose: #c99186;
+      --gold: #b59a64;
+      color-scheme: light;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans", "Noto Sans KR", sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.65;
+    }
+    a { color: inherit; }
+    .shell { max-width: 1120px; margin: 0 auto; padding: 28px 20px 56px; }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 8px 0 24px;
+    }
+    .brand {
+      font-weight: 760;
+      letter-spacing: 0;
+      font-size: 18px;
+    }
+    .lang {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .lang button {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,.58);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 8px 12px;
+      font: inherit;
+      cursor: pointer;
+    }
+    .lang button[aria-pressed="true"] {
+      border-color: var(--green);
+      background: #e7eee5;
+      font-weight: 700;
+    }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, .95fr) minmax(320px, 1.05fr);
+      gap: 34px;
+      align-items: center;
+      padding: 18px 0 34px;
+    }
+    .eyebrow {
+      color: var(--green);
+      font-size: 14px;
+      font-weight: 760;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+    h1 {
+      margin: 10px 0 16px;
+      font-size: clamp(42px, 6vw, 82px);
+      line-height: .96;
+      letter-spacing: 0;
+    }
+    .lead {
+      font-size: clamp(18px, 2.2vw, 24px);
+      color: #33413b;
+      max-width: 720px;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 24px;
+    }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-weight: 760;
+      text-decoration: none;
+      border: 1px solid var(--ink);
+    }
+    .primary { background: var(--ink); color: #fffdf8; }
+    .secondary { background: rgba(255,255,255,.62); }
+    .hero img {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .strip {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding: 14px 0;
+      color: var(--muted);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 8px 0 34px;
+    }
+    .strip strong { display: block; color: var(--ink); font-size: 20px; }
+    section { margin: 46px 0; }
+    h2 { font-size: clamp(28px, 3.5vw, 44px); line-height: 1.08; margin: 0 0 16px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: rgba(255,255,255,.58);
+      padding: 18px;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .gallery figure {
+      margin: 0;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: rgba(255,255,255,.62);
+    }
+    .gallery img { width: 100%; display: block; }
+    figcaption { padding: 10px 12px; font-size: 14px; color: var(--muted); }
+    pre {
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffdf8;
+      padding: 18px;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    footer {
+      margin-top: 48px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    @media (max-width: 860px) {
+      header, .hero { grid-template-columns: 1fr; display: block; }
+      .hero img { margin-top: 24px; }
+      .strip, .grid, .gallery { grid-template-columns: 1fr; }
+      h1 { font-size: 46px; }
+      .lang { justify-content: flex-start; margin-top: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header>
+      <div class="brand">Harness Interview Workflow</div>
+      <nav class="lang" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">English</button>
+        <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+        <button type="button" data-lang="ja" aria-pressed="false">日本語</button>
+        <button type="button" data-lang="ko" aria-pressed="false">한국어</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <div class="eyebrow" data-i18n="eyebrow">Codex skill · blindspot-first execution</div>
+          <h1 data-i18n="heroTitle">Do not let AI start before it finds your blind spots.</h1>
+          <p class="lead" data-i18n="heroLead">Harness Interview Workflow turns vague intent into a structured interview, route options, approval gates, implementation notes, and verifiable delivery.</p>
+          <div class="actions">
+            <a class="button primary" href="https://github.com/2023Anita/harness-interview-workflow" data-i18n="github">View on GitHub</a>
+            <a class="button secondary" href="../skills/harness-interview-workflow/SKILL.md" data-i18n="skill">Read the Skill</a>
+          </div>
+        </div>
+        <img src="../assets/illustrations/00-cover-blindspot-ai.png" alt="Japanese hand-drawn cover showing blindspot discovery">
+      </section>
+
+      <div class="strip" aria-label="Highlights">
+        <div><strong>4</strong><span data-i18n="metric1">unknown categories</span></div>
+        <div><strong>1-3</strong><span data-i18n="metric2">questions per round</span></div>
+        <div><strong>3</strong><span data-i18n="metric3">route options</span></div>
+        <div><strong>4</strong><span data-i18n="metric4">languages</span></div>
+      </div>
+
+      <section>
+        <h2 data-i18n="whyTitle">Why it attracts serious builders</h2>
+        <div class="grid">
+          <article class="card">
+            <h3 data-i18n="card1Title">It reduces confident wrongness</h3>
+            <p data-i18n="card1Body">The workflow forces the agent to expose unknowns before it writes, edits, publishes, or pushes.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="card2Title">It protects approval boundaries</h3>
+            <p data-i18n="card2Body">High-risk actions move behind explicit confirmation instead of becoming accidental automation.</p>
+          </article>
+          <article class="card">
+            <h3 data-i18n="card3Title">It leaves reusable artifacts</h3>
+            <p data-i18n="card3Body">Plans, notes, route decisions, verification, and follow-ups become durable workflow material.</p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-i18n="loopTitle">The eight-step harness</h2>
+        <div class="gallery">
+          <figure>
+            <img src="../assets/illustrations/03-four-unknowns.png" alt="Four unknowns">
+            <figcaption data-i18n="fig1">Classify the unknowns before deciding the route.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/illustrations/05-eight-step-toolbox.png" alt="Eight-step toolbox">
+            <figcaption data-i18n="fig2">Use the workflow as a toolbox, not a one-shot prompt.</figcaption>
+          </figure>
+          <figure>
+            <img src="../assets/illustrations/06-implementation-notes.png" alt="Implementation notes">
+            <figcaption data-i18n="fig3">Record deviations instead of hiding them inside the final answer.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section>
+        <h2 data-i18n="promptTitle">Copy this starter prompt</h2>
+        <pre><code data-i18n="prompt">Use harness-interview-workflow.
+
+Do not execute yet.
+First restate my goal, run the blindspot scan, ask only 1-3 key questions, propose routes, and wait for approval.</code></pre>
+      </section>
+    </main>
+
+    <footer>
+      <span data-i18n="footerLeft">Made for Codex workflows that need clarity before speed.</span>
+      <span>MIT · 2026</span>
+    </footer>
+  </div>
+
+  <script>
+    const copy = {
+      en: {
+        eyebrow: "Codex skill · blindspot-first execution",
+        heroTitle: "Do not let AI start before it finds your blind spots.",
+        heroLead: "Harness Interview Workflow turns vague intent into a structured interview, route options, approval gates, implementation notes, and verifiable delivery.",
+        github: "View on GitHub",
+        skill: "Read the Skill",
+        metric1: "unknown categories",
+        metric2: "questions per round",
+        metric3: "route options",
+        metric4: "languages",
+        whyTitle: "Why it attracts serious builders",
+        card1Title: "It reduces confident wrongness",
+        card1Body: "The workflow forces the agent to expose unknowns before it writes, edits, publishes, or pushes.",
+        card2Title: "It protects approval boundaries",
+        card2Body: "High-risk actions move behind explicit confirmation instead of becoming accidental automation.",
+        card3Title: "It leaves reusable artifacts",
+        card3Body: "Plans, notes, route decisions, verification, and follow-ups become durable workflow material.",
+        loopTitle: "The eight-step harness",
+        fig1: "Classify the unknowns before deciding the route.",
+        fig2: "Use the workflow as a toolbox, not a one-shot prompt.",
+        fig3: "Record deviations instead of hiding them inside the final answer.",
+        promptTitle: "Copy this starter prompt",
+        prompt: "Use harness-interview-workflow.\n\nDo not execute yet.\nFirst restate my goal, run the blindspot scan, ask only 1-3 key questions, propose routes, and wait for approval.",
+        footerLeft: "Made for Codex workflows that need clarity before speed."
+      },
+      zh: {
+        eyebrow: "Codex Skill · 先发现盲区再执行",
+        heroTitle: "别急着让 AI 开工，先让它找到你的盲区。",
+        heroLead: "Harness Interview Workflow 把模糊意图变成结构化采访、路线选择、确认门、实施笔记和可验证交付。",
+        github: "查看 GitHub",
+        skill: "阅读 Skill",
+        metric1: "类未知",
+        metric2: "个问题每轮",
+        metric3: "条路线",
+        metric4: "种语言",
+        whyTitle: "为什么它会吸引认真做事的人",
+        card1Title: "减少自信地做错",
+        card1Body: "在写作、修改、发布、推送之前，先强制 agent 暴露未知。",
+        card2Title: "保护确认边界",
+        card2Body: "高风险动作必须放到明确确认之后，而不是变成误触发的自动化。",
+        card3Title: "留下可复用产物",
+        card3Body: "计划、笔记、路线选择、验证和后续事项都会变成可复用工作流材料。",
+        loopTitle: "八步采访式 Harness",
+        fig1: "先分类未知，再决定路线。",
+        fig2: "把 workflow 当工具箱，而不是一次性 prompt。",
+        fig3: "把偏离计划记录下来，不藏在最终回答里。",
+        promptTitle: "复制这个启动提示词",
+        prompt: "使用 harness-interview-workflow。\n\n先不要执行。\n请先复述我的目标，做盲区扫描，只问 1-3 个关键问题，给出路线选项，并等待我确认。",
+        footerLeft: "为需要先清晰、再提速的 Codex 工作流而做。"
+      },
+      ja: {
+        eyebrow: "Codex Skill · 盲点を先に見つける実行",
+        heroTitle: "AI を走らせる前に、まず盲点を見つける。",
+        heroLead: "Harness Interview Workflow は曖昧な意図を、構造化されたインタビュー、ルート選択、承認ゲート、実装メモ、検証可能な成果物に変えます。",
+        github: "GitHub を見る",
+        skill: "Skill を読む",
+        metric1: "種類の未知",
+        metric2: "質問/ラウンド",
+        metric3: "ルート案",
+        metric4: "言語",
+        whyTitle: "真剣な作り手に刺さる理由",
+        card1Title: "自信満々の誤りを減らす",
+        card1Body: "書く、編集する、公開する、push する前に、agent に未知を明らかにさせます。",
+        card2Title: "承認境界を守る",
+        card2Body: "高リスクな行動は偶然の自動化ではなく、明確な承認の後ろに置かれます。",
+        card3Title: "再利用できる成果物を残す",
+        card3Body: "計画、メモ、ルート判断、検証、フォローアップが持続的な workflow 素材になります。",
+        loopTitle: "8 ステップのインタビュー型 Harness",
+        fig1: "ルートを決める前に未知を分類する。",
+        fig2: "一発 prompt ではなく、工具箱として使う。",
+        fig3: "逸脱を最終回答に隠さず記録する。",
+        promptTitle: "この開始 prompt をコピー",
+        prompt: "Use harness-interview-workflow.\n\nDo not execute yet.\nFirst restate my goal, run the blindspot scan, ask only 1-3 key questions, propose routes, and wait for approval.",
+        footerLeft: "速さの前に明確さが必要な Codex workflow のために。"
+      },
+      ko: {
+        eyebrow: "Codex Skill · 블라인드스팟 먼저 찾기",
+        heroTitle: "AI가 실행하기 전에 먼저 블라인드스팟을 찾게 하세요.",
+        heroLead: "Harness Interview Workflow는 모호한 의도를 구조화된 인터뷰, 경로 선택, 승인 게이트, 구현 노트, 검증 가능한 산출물로 바꿉니다.",
+        github: "GitHub 보기",
+        skill: "Skill 읽기",
+        metric1: "가지 unknown",
+        metric2: "질문/라운드",
+        metric3: "경로 옵션",
+        metric4: "언어",
+        whyTitle: "진지한 빌더에게 매력적인 이유",
+        card1Title: "자신 있게 틀리는 일을 줄입니다",
+        card1Body: "작성, 수정, 게시, push 전에 agent가 unknown을 먼저 드러내게 합니다.",
+        card2Title: "승인 경계를 보호합니다",
+        card2Body: "위험한 행동은 우발적 자동화가 아니라 명확한 승인 뒤로 이동합니다.",
+        card3Title: "재사용 가능한 산출물을 남깁니다",
+        card3Body: "계획, 노트, 경로 결정, 검증, 후속 조치가 지속 가능한 workflow 재료가 됩니다.",
+        loopTitle: "8단계 인터뷰형 Harness",
+        fig1: "경로를 정하기 전에 unknown을 분류합니다.",
+        fig2: "한 번 쓰는 prompt가 아니라 도구상자로 사용합니다.",
+        fig3: "계획 이탈을 최종 답변 뒤에 숨기지 않고 기록합니다.",
+        promptTitle: "이 시작 prompt 복사",
+        prompt: "Use harness-interview-workflow.\n\nDo not execute yet.\nFirst restate my goal, run the blindspot scan, ask only 1-3 key questions, propose routes, and wait for approval.",
+        footerLeft: "속도보다 명확성이 먼저 필요한 Codex workflow를 위해 만들었습니다."
+      }
+    };
+    const buttons = document.querySelectorAll("[data-lang]");
+    function setLang(lang) {
+      const dict = copy[lang] || copy.en;
+      document.documentElement.lang = lang === "zh" ? "zh-CN" : lang === "ja" ? "ja" : lang === "ko" ? "ko" : "en";
+      document.querySelectorAll("[data-i18n]").forEach((node) => {
+        const key = node.getAttribute("data-i18n");
+        node.textContent = dict[key] || copy.en[key] || "";
+      });
+      buttons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.lang === lang)));
+      const url = new URL(window.location.href);
+      url.searchParams.set("lang", lang);
+      history.replaceState(null, "", url);
+    }
+    buttons.forEach((button) => button.addEventListener("click", () => setLang(button.dataset.lang)));
+    const initial = new URL(window.location.href).searchParams.get("lang") || "en";
+    setLang(copy[initial] ? initial : "en");
+  </script>
+</body>
+</html>
