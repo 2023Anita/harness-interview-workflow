@@ -22,6 +22,12 @@ Harness Interview Workflow는 실행 직전에 사용하는 Codex skill입니다
 
 ![Map versus territory](assets/illustrations/02-map-territory.png)
 
+## Animated Architecture
+
+이 workflow는 Lanshu 스타일의 동적 아키텍처 다이어그램으로 시각화되었습니다. 작업 신호가 harness core로 들어가고, 블라인드스팟 스캔과 interview packets를 거쳐 승인 게이트에서 멈춘 뒤, 승인 후 재사용 가능한 산출물로 이동합니다.
+
+![Animated Harness Interview Workflow](assets/architecture/harness-interview-workflow/harness-interview-workflow.gif)
+
 ## Core Loop
 
 1. 목표와 산출물을 다시 말합니다.

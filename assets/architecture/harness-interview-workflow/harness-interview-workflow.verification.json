@@ -1,0 +1,137 @@
+{
+  "png": "/Users/anita/Documents/GitHub project/harness-interview-workflow/assets/architecture/harness-interview-workflow/harness-interview-workflow.png",
+  "gif": "/Users/anita/Documents/GitHub project/harness-interview-workflow/assets/architecture/harness-interview-workflow/harness-interview-workflow.gif",
+  "excalidraw": "/Users/anita/Documents/GitHub project/harness-interview-workflow/assets/architecture/harness-interview-workflow/harness-interview-workflow.excalidraw",
+  "elements": 157,
+  "warnings": [],
+  "verification": {
+    "frames": 41,
+    "diffs": [
+      {
+        "from": 0,
+        "to": 10,
+        "changed_pixels": 172731
+      },
+      {
+        "from": 10,
+        "to": 20,
+        "changed_pixels": 137806
+      },
+      {
+        "from": 20,
+        "to": 30,
+        "changed_pixels": 193398
+      },
+      {
+        "from": 30,
+        "to": 40,
+        "changed_pixels": 200673
+      }
+    ]
+  },
+  "checks": {
+    "ok": true,
+    "checks": [
+      {
+        "name": "png_exists",
+        "ok": true,
+        "detail": "/Users/anita/Documents/GitHub project/harness-interview-workflow/assets/architecture/harness-interview-workflow/harness-interview-workflow.png"
+      },
+      {
+        "name": "gif_exists",
+        "ok": true,
+        "detail": "/Users/anita/Documents/GitHub project/harness-interview-workflow/assets/architecture/harness-interview-workflow/harness-interview-workflow.gif"
+      },
+      {
+        "name": "excalidraw_exists",
+        "ok": true,
+        "detail": "/Users/anita/Documents/GitHub project/harness-interview-workflow/assets/architecture/harness-interview-workflow/harness-interview-workflow.excalidraw"
+      },
+      {
+        "name": "png_dimensions",
+        "ok": true,
+        "detail": {
+          "actual": [
+            1210,
+            1138
+          ],
+          "expected": [
+            1210,
+            1138
+          ]
+        }
+      },
+      {
+        "name": "gif_dimensions",
+        "ok": true,
+        "detail": {
+          "actual": [
+            1210,
+            1138
+          ],
+          "expected": [
+            1210,
+            1138
+          ]
+        }
+      },
+      {
+        "name": "gif_frame_count",
+        "ok": true,
+        "detail": {
+          "actual": 41,
+          "expected": 41
+        }
+      },
+      {
+        "name": "gif_fps",
+        "ok": true,
+        "detail": {
+          "actual": 20,
+          "expected": 20
+        }
+      },
+      {
+        "name": "gif_has_motion",
+        "ok": true,
+        "detail": {
+          "changed_pixels": [
+            172731,
+            137806,
+            193398,
+            200673
+          ]
+        }
+      },
+      {
+        "name": "excalidraw_unique_ids",
+        "ok": true,
+        "detail": {
+          "ids": 157,
+          "unique": 157
+        }
+      },
+      {
+        "name": "excalidraw_font_family",
+        "ok": true,
+        "detail": {
+          "text_elements": 53
+        }
+      },
+      {
+        "name": "excalidraw_files_empty",
+        "ok": true,
+        "detail": {
+          "files_count": 0
+        }
+      },
+      {
+        "name": "no_text_truncation",
+        "ok": true,
+        "detail": {
+          "warnings": []
+        }
+      }
+    ]
+  }
+}

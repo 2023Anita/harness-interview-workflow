@@ -22,6 +22,12 @@ Instead of rushing into implementation, the workflow asks:
 
 ![Map versus territory](assets/illustrations/02-map-territory.png)
 
+## Animated Architecture
+
+The workflow is now mapped as a Lanshu-style animated architecture diagram: task signals flow into the harness core, pass through blindspot scanning and interview packets, stop at an approval gate, and then move into reusable deliverables.
+
+![Animated Harness Interview Workflow](assets/architecture/harness-interview-workflow/harness-interview-workflow.gif)
+
 ## The Core Loop
 
 1. Restate the goal and likely deliverable.

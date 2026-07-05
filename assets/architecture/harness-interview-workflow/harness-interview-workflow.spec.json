@@ -1,0 +1,138 @@
+{
+  "canvas": {
+    "width": 1210,
+    "height": 1138,
+    "fps": 20,
+    "frames": 41
+  },
+  "signature": "@Anita",
+  "title": {
+    "prefix": "Codex Skill",
+    "highlight": "Interview Harness",
+    "subtitle": "blindspot scan -> route choice -> approved execution"
+  },
+  "input_title": "Task Signals",
+  "inputs": [
+    {
+      "label": "Goal",
+      "icon": "file",
+      "color": "#7ee3d6"
+    },
+    {
+      "label": "Sources",
+      "icon": "folder",
+      "color": "#f4b64e"
+    },
+    {
+      "label": "Risks",
+      "icon": "shield",
+      "color": "#ff7ab6"
+    },
+    {
+      "label": "Approval",
+      "icon": "hash",
+      "color": "#9be46d"
+    }
+  ],
+  "core": {
+    "title": "Harness Core",
+    "subtitle": "(slow down before expensive work)",
+    "cards": [
+      {
+        "title": "Scan",
+        "body": "Knowns\nunknowns",
+        "icon": "scan"
+      },
+      {
+        "title": "Interview",
+        "body": "1-3 key\nquestions",
+        "icon": "file"
+      },
+      {
+        "title": "Routes",
+        "body": "A/B/C\ntradeoffs",
+        "icon": "folder"
+      }
+    ]
+  },
+  "decision": {
+    "title": "Approve?",
+    "body": "clear"
+  },
+  "output": {
+    "label": "Execute",
+    "icon": "package"
+  },
+  "loop_label": "Restate, scan, ask, propose, wait for confirmation",
+  "retry_label": "No / refine",
+  "left_panel": {
+    "title": "Intake Contract",
+    "badge": "before plan",
+    "cards": [
+      {
+        "title": "Goal",
+        "body": "deliverable\nstop point",
+        "icon": "file"
+      },
+      {
+        "title": "Sources",
+        "body": "must reuse\nstyle only",
+        "icon": "folder"
+      },
+      {
+        "title": "Risk",
+        "body": "publish\ncommit push",
+        "icon": "shield"
+      }
+    ]
+  },
+  "center_panel": {
+    "title": "Interview Packets",
+    "subtitle": "(only high-leverage questions)",
+    "footer": "Integrate",
+    "cards": [
+      {
+        "title": "Blindspot",
+        "body": "four\nunknowns",
+        "icon": "scan"
+      },
+      {
+        "title": "Questions",
+        "body": "change\nroute",
+        "icon": "file"
+      },
+      {
+        "title": "Options",
+        "body": "A B C\nroutes",
+        "icon": "hash"
+      },
+      {
+        "title": "Notes",
+        "body": "deviation\nrecord",
+        "icon": "db"
+      }
+    ]
+  },
+  "right_panel": {
+    "title": "Deliverables",
+    "incoming_label": "Approved",
+    "return_label": "Reusable",
+    "cards": [
+      {
+        "title": "Plan",
+        "body": "criteria\nrisks",
+        "icon": "file"
+      },
+      {
+        "title": "Execution",
+        "body": "gated\nactions",
+        "icon": "package"
+      },
+      {
+        "title": "Quiz",
+        "body": "verify\nunderstanding",
+        "icon": "shield"
+      }
+    ]
+  }
+}
