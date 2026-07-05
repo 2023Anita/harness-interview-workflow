@@ -35,3 +35,4 @@ Build a high-quality public GitHub package for the Harness Interview Workflow wi
 - Repository published: `https://github.com/2023Anita/harness-interview-workflow`.
 - Pages published: `https://2023anita.github.io/harness-interview-workflow/`.
 - Pages status: `built`.
+- 2026-07-05: Added animated architecture GIF/PNG/Excalidraw generated with `lanshu-arch-harness`; first Pages deployment failed with a transient GitHub deploy error, then an empty commit `b24fb28 Retry Pages deployment` successfully triggered Pages deployment.

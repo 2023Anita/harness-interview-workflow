@@ -35,3 +35,12 @@
 - Pages source: `main` branch `/docs`
 - Pages status: `built`
 - Topics: `ai-agents`, `approval-gates`, `codex-skill`, `prompt-engineering`, `workflow`, `blindspot-scan`, `japanese-illustration`
+
+## Animated Architecture Update
+
+- Added Lanshu Arch Harness outputs under `assets/architecture/harness-interview-workflow/`.
+- Added GitHub Pages copies under `docs/assets/architecture/`.
+- Added the animated GIF to all four README files and the multilingual Pages showcase.
+- Verification: renderer `--check` returned `ok: true`; GIF is `1210 x 1138`, `41` frames, `20 fps`, with nonzero frame diffs and no warnings.
+- Live Pages check: `https://2023anita.github.io/harness-interview-workflow/assets/architecture/harness-interview-workflow.gif` returns HTTP 200 with `content-type: image/gif`.
+- Live Playwright check confirmed the page GIF loads at `1210 x 1138` and language switching still works.
